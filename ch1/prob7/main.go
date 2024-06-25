@@ -16,8 +16,8 @@ ring 1
 var (
 	north = image.Pt(0, -1)
 	south = image.Pt(0, 1)
-	east  = image.Point(1, 0)
-	west  = image.Point(-1, 0)
+	east  = image.Pt(1, 0)
+	west  = image.Pt(-1, 0)
 )
 
 func Rotate(m [][]int) [][]int {
