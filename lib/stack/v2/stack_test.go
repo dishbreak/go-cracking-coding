@@ -35,4 +35,15 @@ func TestStack(t *testing.T) {
 		assert.Equal(t, animal{age: 4, name: "leo"}, s.Peek())
 		assert.False(t, s.Empty()) // peek keeps the item on the stack
 	})
+
+	t.Run("stack obeys LIFO semantics", func(t *testing.T) {
+		s := &stack.Stack[int]{}
+		s.Push(7)
+		s.Push(4)
+		s.Push(3)
+
+		assert.Equal(t, 3, s.Pop())
+		assert.Equal(t, 4, s.Pop())
+		assert.Equal(t, 7, s.Pop())
+	})
 }
