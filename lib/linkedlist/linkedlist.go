@@ -42,3 +42,43 @@ func Index(head *Node, i int) *Node {
 	}
 	return c
 }
+
+func Copy(h *Node) *Node {
+	if h == nil {
+		return nil
+	}
+
+	var r *Node
+
+	for c := h; h != nil; h = h.Next {
+		n := &Node{
+			Value: c.Value,
+		}
+		if r == nil {
+			r = n
+			continue
+		}
+		r.Next = n
+		r = r.Next
+	}
+
+	return r
+}
+
+func Reverse(h *Node) *Node {
+	if h == nil || h.Next == nil {
+		return nil
+	}
+
+	r := Reverse(h.Next)
+	h.Next.Next = h
+	h.Next = nil
+	return r
+}
+
+func Tail(h *Node) *Node {
+	for ; h.Next != nil; h = h.Next {
+	}
+
+	return h
+}
